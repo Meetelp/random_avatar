@@ -1,7 +1,9 @@
 library multiavatar;
 
 import 'dart:convert';
+
 import 'package:crypto/crypto.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -34,13 +36,11 @@ Widget randomAvatar(
     matchTextDirection: matchTextDirection,
     allowDrawingOutsideViewBox: allowDrawingOutsideViewBox,
     placeholderBuilder: placeholderBuilder,
-    color: color,
-    colorBlendMode: colorBlendMode,
+    colorFilter: color != null ? ColorFilter.mode(color, colorBlendMode) : null,
     semanticsLabel: semanticsLabel,
     excludeFromSemantics: excludeFromSemantics,
-    clipBehavior: clipBehavior,
-    cacheColorFilter: cacheColorFilter,
-    theme: theme,
+    // cacheColorFilter: cacheColorFilter,
+    theme: theme ?? SvgTheme(),
   );
 }
 
